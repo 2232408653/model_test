@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_form_book_extend" model="ir.ui.view">
+        <field name="name">Book: add Is Available? field</field>
+        <field name="model">library.book</field>
+        <field name="inherit_id" ref="library_app.view_form_book" />
+        <field name="arch" type="xml">
+            <field name="isbn" position="after">
+                <!--position属性:
+                inside（默认值）：在所选节点内添加内容，这一节点应是<group>或<page>一类的容器
+                after：在选定节点之后向父节点添加内容
+                before：在选定节点之前向父节点添加内容
+                replace：替换所选节点。若使用空元素则会删除该元素。
+                    Odoo 之后还允许使用其它标记来包裹元素，通过在内容中使用$0来表示被替换的元素。
+                attributes：修改匹配元素属性值。
+                    内容中应包含带有一个或多个<attribute name=”attr-name”>value</attribute>元素。
+                    如<attribute name=”invisible”>True</attribute>，
+                    若不带内容，如<attribute name=”invisible” />则 attribute 会从所选元素中删除。
+                    除了attributes定位，上述定位符可与带position=”move”的子元素合并。
+                    效果是将子定位符目标节点移到父定位符目录位置。
+
+                    -->
+                <!--小贴士：通过position=”replace”可删除 XML 元素，但应避免这么做。
+                这么做会破坏其它依赖所删除节点、将其作为占位符添加元素的模块。
+                一个替代方案是，让该元素不可见。-->
+                <field name="is_available" />
+            </field>
+        </field>
+    </record>
+</odoo>
